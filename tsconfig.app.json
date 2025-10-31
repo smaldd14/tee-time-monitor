@@ -20,7 +20,17 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "noUncheckedSideEffectImports": true
+    "noUncheckedSideEffectImports": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/*": [
+        "./src/*"
+      ],
+      "@/types/*": ["./src/types/*"],
+      "@/components/*": ["./src/react-app/components/*"],
+      "@/lib/*": ["./src/react-app/lib/*"],
+      "@/pages/*": ["./src/react-app/pages/*"],
+    }
   },
   "include": ["src/react-app"]
 }

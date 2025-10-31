@@ -3,6 +3,11 @@
 // Runtime types generated with workerd@1.20250617.0 2025-10-08 nodejs_compat
 declare namespace Cloudflare {
 	interface Env {
+        LGG_API_URL: string;
+        DATABASE_URL: string;
+        STRIPE_SECRET_KEY: string;
+        STRIPE_SUCCESS_URL: string;
+        STRIPE_CANCEL_URL: string;
 	}
 }
 interface Env extends Cloudflare.Env {}
