@@ -6,6 +6,7 @@ declare namespace Cloudflare {
         LGG_API_URL: string;
         DATABASE_URL: string;
         STRIPE_SECRET_KEY: string;
+        STRIPE_PRICE_ID: string;
         STRIPE_SUCCESS_URL: string;
         STRIPE_CANCEL_URL: string;
 	}

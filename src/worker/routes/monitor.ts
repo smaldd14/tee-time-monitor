@@ -55,6 +55,7 @@ monitorRoutes.post('/', async (c) => {
     // Step 3: Create Stripe checkout session
     const checkoutUrl = await stripeService.createMonitorCheckoutSession(
       searchCriteriaId,
+      c.env.STRIPE_PRICE_ID,
       c.env.STRIPE_SUCCESS_URL,
       c.env.STRIPE_CANCEL_URL
     );

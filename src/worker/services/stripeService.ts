@@ -12,6 +12,7 @@ export class StripeService {
 	 */
 	async createMonitorCheckoutSession(
 		searchCriteriaId: string,
+		priceId: string,
 		successUrl: string,
 		cancelUrl: string
 	): Promise<string> {
@@ -19,14 +20,7 @@ export class StripeService {
 			payment_method_types: ['card'],
 			line_items: [
 				{
-					price_data: {
-						currency: 'usd',
-						product_data: {
-							name: 'Tee Time Monitor',
-							description: 'Monitor tee times and get notified when your preferred slots become available',
-						},
-						unit_amount: 99, // $0.99 in cents
-					},
+					price: priceId,
 					quantity: 1,
 				},
 			],

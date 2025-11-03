@@ -195,5 +195,5 @@ dist
 .wrangler/
 .env*
 !.env.example
-.dev.vars*
+*.vars*
 !.dev.vars.example
