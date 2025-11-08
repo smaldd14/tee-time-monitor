@@ -5,12 +5,13 @@ import { MonitorService } from '../services/monitorService';
 import { StripeService } from '../services/stripeService';
 import type { MonitorRequest } from '../../types/monitor';
 import { geocodeZipCode } from '../utils/geocode';
+import { monitorCreationRateLimiter } from '../middleware/rateLimiter';
 
 
 const monitorRoutes = new Hono<{ Bindings: Env }>();
 
 // Create monitor - saves search criteria and returns Stripe checkout URL
-monitorRoutes.post('/', async (c) => {
+monitorRoutes.post('/', monitorCreationRateLimiter, async (c) => {
   const client = await getDbClient(c.env);
 
   try {
@@ -96,6 +97,7 @@ monitorRoutes.post('/', async (c) => {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${c.env.LGG_API_KEY}`,
         },
       }
     );
@@ -119,6 +121,7 @@ monitorRoutes.post('/', async (c) => {
       method: 'DELETE',
       headers: {
         'Content-Type': 'application/json',
+        'Authorization': `Bearer ${c.env.LGG_API_KEY}`,
       },
     });
   

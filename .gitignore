@@ -197,3 +197,6 @@ dist
 !.env.example
 *.vars*
 !.dev.vars.example
+
+# scripts
+test-rate-limit.js
