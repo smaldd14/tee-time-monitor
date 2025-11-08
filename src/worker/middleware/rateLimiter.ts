@@ -16,11 +16,15 @@ export const rateLimiter = (config: {
     const clientIP = c.req.header('CF-Connecting-IP') || c.req.header('X-Forwarded-For') || 'unknown';
     const key = `${keyPrefix}:${clientIP}`;
 
+    console.log ('Rate limiter binding found:', c.env.RATE_LIMITER);
+    
     if (!c.env.RATE_LIMITER) {
       // local environment, pass thru
       await next();
       return;
     }
+
+    console.log('Rate limiter found. Rate limiting is supported.');
 
     try {
       // Use Cloudflare's Rate Limiting API
