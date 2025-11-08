@@ -29,7 +29,8 @@ teeTimeRoutes.post('/facilities/search', facilitySearchRateLimiter, async (c) =>
       radiusMiles,
       searchDate,
     };
-
+    console.log('LGG_API_URL:', c.env.LGG_API_URL);
+    console.log('LGG_API_KEY:', c.env.LGG_API_KEY);
     const response = await fetch(`${c.env.LGG_API_URL}/api/facilities/search`, {
       method: 'POST',
       headers: {
