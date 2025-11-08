@@ -1,13 +1,12 @@
 import { Hono } from 'hono';
 import '../types/hono';
 import { geocodeZipCode } from '../utils/geocode';
-import { facilitySearchRateLimiter } from '../middleware/rateLimiter';
 
 const teeTimeRoutes = new Hono<{ Bindings: Env }>();
 
 // Search for golf facilities
 // Converts ZIP code to lat/long, then proxies request to Spring Boot API
-teeTimeRoutes.post('/facilities/search', facilitySearchRateLimiter, async (c) => {
+teeTimeRoutes.post('/facilities/search', async (c) => {
   try {
     const body = await c.req.json();
     const { zipCode, radiusMiles, searchDate } = body;
@@ -29,8 +28,7 @@ teeTimeRoutes.post('/facilities/search', facilitySearchRateLimiter, async (c) =>
       radiusMiles,
       searchDate,
     };
-    console.log('LGG_API_URL:', c.env.LGG_API_URL);
-    console.log('LGG_API_KEY:', c.env.LGG_API_KEY);
+
     const response = await fetch(`${c.env.LGG_API_URL}/api/facilities/search`, {
       method: 'POST',
       headers: {
