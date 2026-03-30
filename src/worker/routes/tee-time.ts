@@ -30,6 +30,8 @@ teeTimeRoutes.post('/facilities/search', facilitySearchRateLimiter, async (c) =>
       searchDate,
     };
 
+    console.log("calling api, key", c.env.LGG_API_URL, c.env.LGG_API_KEY)
+
     const response = await fetch(`${c.env.LGG_API_URL}/api/facilities/search`, {
       method: 'POST',
       headers: {
@@ -40,6 +42,7 @@ teeTimeRoutes.post('/facilities/search', facilitySearchRateLimiter, async (c) =>
     });
 
     if (!response.ok) {
+      console.log("error: ", await response.text())
       return c.json({
         success: false,
         error: `Spring Boot API error: ${response.statusText}`,

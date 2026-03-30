@@ -26,6 +26,14 @@ const HomePage = () => {
               >
                 Start Monitoring
               </Button>
+              {/* <Button
+                size="lg"
+                variant="outline"
+                className="text-base sm:text-lg px-8 sm:px-10 py-5 sm:py-6 h-auto"
+                onClick={() => navigate('/agent')}
+              >
+                Try AI Assistant
+              </Button> */}
             </div>
           </div>
         </div>

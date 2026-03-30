@@ -1,6 +1,7 @@
 import HomePage from '../pages/Home';
 import MonitorPage from '../pages/Monitor';
 import SuccessPage from '../pages/Success';
+// import AgentPage from '../pages/Agent';
 import { ComponentType } from 'react';
 
 export type RouteType = {
@@ -34,6 +35,11 @@ const routes: RoutesConfig = [
     key: "Success",
     component: SuccessPage,
   },
+  // {
+  //   path: "/agent",
+  //   key: "Agent",
+  //   component: AgentPage,
+  // },
 ];
 
 export default routes;

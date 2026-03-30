@@ -1,5 +1,6 @@
 import { Hono } from "hono";
 import { cors } from "hono/cors";
+import { routeAgentRequest } from "agents";
 // import authRoutes from "./middleware/auth";
 import userRoutes from "./routes/users";
 import teeTimeRoutes from "./routes/tee-time";
@@ -22,4 +23,14 @@ app.route("/api/users", userRoutes);
 app.route("/api/monitor", monitorRoutes);
 app.route("/api", teeTimeRoutes);
 
-export default app;
+export default {
+  async fetch(request: Request, env: Env, ctx: ExecutionContext) {
+    const agentResponse = await routeAgentRequest(request, env);
+    if (agentResponse) {
+      return agentResponse;
+    }
+    return app.fetch(request, env, ctx);
+  },
+};
+
+export { Chat } from "./agents/chat";
