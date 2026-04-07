@@ -25,6 +25,7 @@ export class StripeService {
 				},
 			],
 			mode: 'payment',
+			allow_promotion_codes: true,
 			success_url: successUrl,
 			cancel_url: cancelUrl,
 			metadata: {
