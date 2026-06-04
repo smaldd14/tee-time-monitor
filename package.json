@@ -21,6 +21,7 @@
     "@json-render/core": "^0.15.0",
     "@json-render/react": "^0.15.0",
     "@json-render/shadcn": "^0.15.0",
+    "@modelcontextprotocol/sdk": "^1.28.0",
     "@radix-ui/react-checkbox": "^1.3.3",
     "@radix-ui/react-label": "^2.1.7",
     "@radix-ui/react-popover": "^1.1.15",
@@ -77,6 +78,9 @@
     "deploy": "wrangler deploy",
     "dev": "vite",
     "dev:worker": "wrangler dev",
+    "dev:mcp": "wrangler dev -c wrangler.mcp.jsonc",
+    "check:mcp": "tsc -p tsconfig.mcp.json --noEmit && wrangler deploy --dry-run -c wrangler.mcp.jsonc",
+    "deploy:mcp": "wrangler deploy -c wrangler.mcp.jsonc",
     "lint": "eslint .",
     "preview": "npm run build && vite preview"
   },

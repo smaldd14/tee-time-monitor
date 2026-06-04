@@ -1,0 +1,30 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "tee-time-mcp",
+  "main": "./src/mcp/index.ts",
+  "compatibility_date": "2025-10-14",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": {
+    "enabled": true
+  },
+  "upload_source_maps": true,
+  "durable_objects": {
+    "bindings": [
+      {
+        "name": "MCP_OBJECT",
+        "class_name": "TeeTimeMcpAgent"
+      }
+    ]
+  },
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": ["TeeTimeMcpAgent"]
+    }
+  ],
+  "vars": {
+    "LGG_API_URL": "https://api.smaldore.dev",
+    // The /subscribe page the MCP directs unsubscribed users to. Update host for production.
+    "SUBSCRIPTION_CHECKOUT_URL": "http://localhost:5173/subscribe"
+  }
+}
