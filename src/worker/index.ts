@@ -5,6 +5,7 @@ import { routeAgentRequest } from "agents";
 import userRoutes from "./routes/users";
 import teeTimeRoutes from "./routes/tee-time";
 import monitorRoutes from "./routes/monitor";
+import { connectRoutes, billingRoutes } from "./routes/connect";
 
 const app = new Hono<{ Bindings: Env }>();
 
@@ -21,6 +22,8 @@ app.get("/api/", (c) => c.json({ name: "Tee Time Monitor API", status: "healthy"
 // app.route("/api/auth", authRoutes);
 app.route("/api/users", userRoutes);
 app.route("/api/monitor", monitorRoutes);
+app.route("/api/connect", connectRoutes);
+app.route("/api/billing-portal", billingRoutes);
 app.route("/api", teeTimeRoutes);
 
 export default {
