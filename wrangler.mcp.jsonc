@@ -24,7 +24,7 @@
   ],
   "vars": {
     "LGG_API_URL": "https://api.smaldore.dev",
-    // The /subscribe page the MCP directs unsubscribed users to. Update host for production.
-    "SUBSCRIPTION_CHECKOUT_URL": "http://localhost:5173/subscribe"
+    // The /subscribe page the MCP directs unsubscribed users to.
+    "SUBSCRIPTION_CHECKOUT_URL": "https://app.teetimemonitor.com/subscribe"
   }
 }
