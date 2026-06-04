@@ -17,7 +17,7 @@
   },
   "vars": {
     // Base URL of the MCP worker; the /connect page builds client setup snippets from this.
-    "MCP_CONNECTOR_URL": "https://tee-time-mcp.smaldore.dev"
+    "MCP_CONNECTOR_URL": "https://mcp.teetimemonitor.com"
   },
   "durable_objects": {
     "bindings": [
