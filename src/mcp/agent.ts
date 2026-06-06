@@ -12,11 +12,16 @@ import {
   type LggEnv,
   type SearchCriteria,
 } from './lgg';
+import type { OAuthHelpers } from '@cloudflare/workers-oauth-provider';
 
 // Extends the generated Cloudflare Env (which already declares LGG_API_URL / LGG_API_KEY) so it
-// satisfies the McpAgent generic constraint, plus the MCP-specific var.
+// satisfies the McpAgent generic constraint, plus the MCP-specific vars.
 export interface McpEnv extends Env, LggEnv {
   SUBSCRIPTION_CHECKOUT_URL: string;
+  OAUTH_KV: KVNamespace;
+  MCP_BASE_URL: string;
+  // Injected by OAuthProvider at runtime; available in all fetch handlers.
+  OAUTH_PROVIDER: OAuthHelpers;
 }
 
 // Identity is derived from the user's token (resolved in the fetch handler), never from the client.

@@ -25,9 +25,17 @@
       "new_sqlite_classes": ["TeeTimeMcpAgent"]
     }
   ],
+  "kv_namespaces": [
+    {
+      "binding": "OAUTH_KV",
+      // Replace with the real ID after: npx wrangler kv namespace create OAUTH_KV --config wrangler.mcp.jsonc
+      "id": "REPLACE_WITH_OAUTH_KV_NAMESPACE_ID"
+    }
+  ],
   "vars": {
     "LGG_API_URL": "https://api.smaldore.dev",
     // The /subscribe page the MCP directs unsubscribed users to.
-    "SUBSCRIPTION_CHECKOUT_URL": "https://app.teetimemonitor.com/subscribe"
+    "SUBSCRIPTION_CHECKOUT_URL": "https://app.teetimemonitor.com/subscribe",
+    "MCP_BASE_URL": "https://mcp.teetimemonitor.com"
   }
 }

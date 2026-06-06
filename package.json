@@ -18,6 +18,7 @@
     "@cloudflare/ai-chat": "^0.2.6",
     "@cloudflare/codemode": "^0.3.2",
     "@cloudflare/puppeteer": "1.0.3",
+    "@cloudflare/workers-oauth-provider": "^0.7.2",
     "@json-render/core": "^0.15.0",
     "@json-render/react": "^0.15.0",
     "@json-render/shadcn": "^0.15.0",
