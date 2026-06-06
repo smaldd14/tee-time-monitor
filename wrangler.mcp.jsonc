@@ -1,41 +1,47 @@
 {
-  "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "tee-time-mcp",
-  "main": "./src/mcp/index.ts",
-  "compatibility_date": "2025-10-14",
-  "compatibility_flags": ["nodejs_compat"],
-  "observability": {
-    "enabled": true
-  },
-  "upload_source_maps": true,
-  "routes": [
-    { "pattern": "mcp.teetimemonitor.com", "custom_domain": true }
-  ],
-  "durable_objects": {
-    "bindings": [
-      {
-        "name": "MCP_OBJECT",
-        "class_name": "TeeTimeMcpAgent"
-      }
-    ]
-  },
-  "migrations": [
-    {
-      "tag": "v1",
-      "new_sqlite_classes": ["TeeTimeMcpAgent"]
-    }
-  ],
-  "kv_namespaces": [
-    {
-      "binding": "OAUTH_KV",
-      // Replace with the real ID after: npx wrangler kv namespace create OAUTH_KV --config wrangler.mcp.jsonc
-      "id": "REPLACE_WITH_OAUTH_KV_NAMESPACE_ID"
-    }
-  ],
-  "vars": {
-    "LGG_API_URL": "https://api.smaldore.dev",
-    // The /subscribe page the MCP directs unsubscribed users to.
-    "SUBSCRIPTION_CHECKOUT_URL": "https://app.teetimemonitor.com/subscribe",
-    "MCP_BASE_URL": "https://mcp.teetimemonitor.com"
-  }
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "tee-time-mcp",
+	"main": "./src/mcp/index.ts",
+	"compatibility_date": "2025-10-14",
+	"compatibility_flags": [
+		"nodejs_compat"
+	],
+	"observability": {
+		"enabled": true
+	},
+	"upload_source_maps": true,
+	"routes": [
+		{
+			"pattern": "mcp.teetimemonitor.com",
+			"custom_domain": true
+		}
+	],
+	"durable_objects": {
+		"bindings": [
+			{
+				"name": "MCP_OBJECT",
+				"class_name": "TeeTimeMcpAgent"
+			}
+		]
+	},
+	"migrations": [
+		{
+			"tag": "v1",
+			"new_sqlite_classes": [
+				"TeeTimeMcpAgent"
+			]
+		}
+	],
+	"kv_namespaces": [
+		{
+			"binding": "OAUTH_KV",
+			"id": "e7359433573848558d9e68bf3edebfc6"
+		}
+	],
+	"vars": {
+		"LGG_API_URL": "https://api.smaldore.dev",
+		// The /subscribe page the MCP directs unsubscribed users to.
+		"SUBSCRIPTION_CHECKOUT_URL": "https://app.teetimemonitor.com/subscribe",
+		"MCP_BASE_URL": "https://mcp.teetimemonitor.com"
+	}
 }
