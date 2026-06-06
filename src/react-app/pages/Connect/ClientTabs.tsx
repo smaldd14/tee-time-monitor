@@ -28,8 +28,9 @@ const ClientTabs = ({ mcpUrl, token }: ClientTabsProps) => {
     {
       label: 'Claude Mobile / Web',
       icon: Smartphone,
-      description: 'In Claude, add a custom connector and paste this URL. No terminal needed.',
-      command: `${mcpUrl}/mcp?token=${token}`,
+      description:
+        'In Claude, add a custom connector and paste this URL. Claude will open a browser to sign in — paste your token there when prompted.',
+      command: `${mcpUrl}/mcp`,
     },
   ];
 
